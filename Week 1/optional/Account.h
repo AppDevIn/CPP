@@ -1,6 +1,6 @@
 class Account{
     //data memeber
-    private:
+    protected:
         double amount;
     //Methods
     public:
@@ -8,7 +8,7 @@ class Account{
         Account(double aAmount); // Parameterized Constructor 
 
         //Member functions 
-        void credit();
+        void credit(double value);
         void debit(double withdraw);
         double getBalance();
 

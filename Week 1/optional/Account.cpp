@@ -15,8 +15,8 @@ Account::Account(double aAmount){
     
 }
 
-void Account::credit(){
-
+void Account::credit(double value){
+    amount += value;
 }
 
 void Account::debit(double withdraw){
