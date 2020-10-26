@@ -68,6 +68,10 @@ int List::getLength() { return size; }
 // display the items in the list
 void List::print()
 {
+	if(size == 0){
+		cout << "The list is empty" << endl;
+		return;
+	}
 	for (int i = 0; i < size; i++)
 	{
 		cout << items[i] << endl;
