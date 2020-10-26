@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include "List.h"
 #include "List.cpp"
 #include "Person.cpp"
 #include <string>
