@@ -1,5 +1,5 @@
 // List.cpp - Implementation of List ADT using Array
-#include "pch.h"
+
 #include "List.h"  // header file
 
 // constructor
@@ -68,11 +68,16 @@ int List::getLength() { return size; }
 // display the items in the list
 void List::print()
 {
+	for (int i = 0; i < size; i++)
+	{
+		cout << items[i] << endl;
+	}
 
 }
 
 // replace the  item in the specified index in the list
 void List::replace(int index, ItemType item)
 {
+	items[index] = item;
 
 }
