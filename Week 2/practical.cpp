@@ -10,7 +10,7 @@ using namespace std;
 
 int menu(){
     int option;
-    cout << "---------------- Main Menu -------------------" << endl;
+    cout << "\n---------------- Main Menu -------------------" << endl;
     cout << "[1] List the phone numbers" << endl;
     cout <<"[2] Add a new contact" << endl;
     cout << "[3] Remove a contact"  << endl;
@@ -41,7 +41,7 @@ int main()
         switch (option)
         {
         case 1:
-            if(list.getLength()){
+            if(!list.getLength()){
                 cout << "This list is empty" << endl;
             }
             for (int i = 0; i < list.getLength(); i++)
