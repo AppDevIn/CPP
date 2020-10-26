@@ -2,11 +2,15 @@
 
 #include "List.h"  // header file
 
+
 // constructor
-List::List() { size = 0; }
+template <class T>
+List<T>::List() { size = 0; }
 
 // add an item to the back of the list (append)
-bool List::add(ItemType item)
+
+template <class T>
+bool List<T>::add(T const& item)
 {
 	bool success = size < MAX_SIZE;
 	if (success)
@@ -18,7 +22,8 @@ bool List::add(ItemType item)
 }
 
 // add an item at a specified position in the list (insert)
-bool List::add(int index, ItemType item)
+template <class T>
+bool List<T>::add(int index, T const& item)
 {
 	bool success = (index >= 0) && (index <= size) && (size < MAX_SIZE);
 	if (success)
@@ -35,7 +40,8 @@ bool List::add(int index, ItemType item)
 }
 
 // remove an item at a specified position in the list
-void List::remove(int index)
+template <class T>
+void List<T>::remove(int index)
 {
 	bool success = (index >= 0) && (index < size);
 	if (success)
@@ -50,37 +56,43 @@ void List::remove(int index)
 }
 
 // get an item at a specified position of the list (retrieve)
-ItemType List::get(int index)
+template <class T>
+T List<T>::get(int index)
 {
 	bool success = (index >= 0) && (index < size);
 	if (success)
 		return items[index];
 	else
-		return -1;
+		throw out_of_range("Die");
+		
 }
 
 // check if the list is empty
-bool List::isEmpty() { return size == 0; }
+template <class T>
+bool List<T>::isEmpty() { return size == 0; }
 
 // check the size of the list
-int List::getLength() { return size; }
+template <class T>
+int List<T>::getLength() { return size; }
 
 // display the items in the list
-void List::print()
+template <class T>
+void List<T>::print()
 {
-	if(size == 0){
-		cout << "The list is empty" << endl;
-		return;
-	}
-	for (int i = 0; i < size; i++)
-	{
-		cout << items[i] << endl;
-	}
+	// if(size == 0){
+	// 	cout << "The list is empty" << endl;
+	// 	return;
+	// }
+	// for (int i = 0; i < size; i++)
+	// {
+	// 	cout << items[i] << endl;
+	// }
 
 }
 
 // replace the  item in the specified index in the list
-void List::replace(int index, ItemType item)
+template <class T>
+void List<T>::replace(int index, T const& item)
 {
 	items[index] = item;
 
