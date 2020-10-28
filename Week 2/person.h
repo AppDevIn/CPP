@@ -13,5 +13,6 @@ class Person {
         string getName();
         void setTelNo(string aTelNo);
         string getTelNo();
+        string to_string();
 
 };

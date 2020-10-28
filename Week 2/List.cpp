@@ -76,19 +76,12 @@ template <class T>
 int List<T>::getLength() { return size; }
 
 // display the items in the list
-template <class T>
-void List<T>::print()
-{
-	// if(size == 0){
-	// 	cout << "The list is empty" << endl;
-	// 	return;
-	// }
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	cout << items[i] << endl;
-	// }
+// template <class T>
+// void List<T>::print()
+// {
+	
 
-}
+// }
 
 // replace the  item in the specified index in the list
 template <class T>
