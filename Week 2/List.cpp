@@ -63,7 +63,7 @@ T List<T>::get(int index)
 	if (success)
 		return items[index];
 	else
-		throw out_of_range("Die");
+		throw out_of_range("Invaild index");
 		
 }
 
@@ -75,13 +75,6 @@ bool List<T>::isEmpty() { return size == 0; }
 template <class T>
 int List<T>::getLength() { return size; }
 
-// display the items in the list
-// template <class T>
-// void List<T>::print()
-// {
-	
-
-// }
 
 // replace the  item in the specified index in the list
 template <class T>

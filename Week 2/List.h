@@ -54,7 +54,6 @@ public:
 	// return the number of items in the list
 	int getLength();
 
-	void print();
 
 	void replace(int index, T const& item);
 };
