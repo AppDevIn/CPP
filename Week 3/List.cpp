@@ -9,7 +9,15 @@ List::List() {
 }
 
 List::~List(){
-
+    Node *temp = firstNode;
+    while (temp != NULL)
+    {
+        firstNode = firstNode->next;
+        temp->next = NULL;
+        delete temp;
+        temp = firstNode;
+    }
+    
 }
 
 bool List::add(ItemType item){
