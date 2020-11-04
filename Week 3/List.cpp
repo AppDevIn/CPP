@@ -17,7 +17,7 @@ List::~List(){
         delete temp;
         temp = firstNode;
     }
-    
+    size = 0; 
 }
 
 bool List::add(ItemType item){
