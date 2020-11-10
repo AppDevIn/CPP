@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "stack.cpp"
 
 
@@ -7,10 +8,10 @@ int main(int argc, char const *argv[])
 
 
     Stack s;
-    s.push(3);
-    s.push(4);
+    s.push("3");
+    s.push("4");
 
-    int value;
+    string value;
     s.getTop(value);
 
     s.displayInOrderOfInsertion();
@@ -18,8 +19,6 @@ int main(int argc, char const *argv[])
     s.pop();
 
     s.displayInOrderOfInsertion();
-
-
 
 
     return 0;
