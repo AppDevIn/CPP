@@ -6,7 +6,17 @@ Stack::Stack(){
 
 
 Stack::~Stack(){
-    
+    //    set temp (pointer) point to the top node
+    Node* temp = topNode;
+    while (temp){
+        //    make topNode(pointer) point to the next node in stack
+        topNode = topNode->next;
+        //    make removed node’s next (pointer) point to NULL
+        temp->next = NULL;
+        //    deallocate memory from removed node
+        delete temp;
+        temp = topNode;
+    }
 }
 
 

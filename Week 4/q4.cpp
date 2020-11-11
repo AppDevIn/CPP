@@ -2,11 +2,16 @@
 #include <string>
 #include "stack.cpp"
 
+void vistUrl(Stack* back, Stack* forward);
+void back(Stack* back, Stack* forward);
+void forward(Stack* forwardS);
+
+using namespace std;
 
 int main()
 {
-    Stack back_stack;
-    Stack forward_stack;
+    Stack* back_stack = new Stack;
+    Stack* forward_stack = new Stack;
     string temp;
     while (temp != "0")
     {
@@ -14,54 +19,52 @@ int main()
         cin >> temp;
         if (temp == "0")
             break;
-        else if (temp == "1"){
-            cout << "Please enter the URL: ";
-            string url;
-            cin >> url;
-            cout << endl;
+        else if (temp == "1"){vistUrl(back_stack, forward_stack);}
 
-            back_stack.push(url);
+        else if(temp == "2"){back(back_stack, forward_stack);}
 
-            cout << "Current website " << url << endl;
-
-            if(!forward_stack.isEmpty()){
-                forward_stack.~Stack();
-                forward_stack = Stack();
-            }
-
-
-        }
-
-        else if(temp == "2"){
-            string value;
-            back_stack.pop(value);
-            forward_stack.push(value);
-
-            if(back_stack.isEmpty()){
-                cout << "Back history is empty" << endl;
-            }else{
-                back_stack.getTop(value);
-                cout << "The current web page " << value << endl;
-            }
-
-
-
-        }
-
-        else if (temp == "3"){
-            string value;
-            forward_stack.pop(value);
-
-
-
-            if(value.size() == 0){
-                cout << "Forward history is empty" << endl;
-            }else{
-                cout << "The current web page " << value << endl;
-            }
-
-
-        }
+        else if (temp == "3"){forward(forward_stack);}
     }
     return 0;
+}
+
+void vistUrl(Stack* back, Stack* forward){
+    cout << "Please enter the URL: ";
+    string url;
+    cin >> url;
+    cout << endl;
+
+    back->push(url);
+
+    cout << "Current website " << url << endl;
+
+    if(!forward->isEmpty()){
+        forward->~Stack();
+        forward = new Stack;
+    }
+
+}
+
+void back(Stack* back, Stack* forward){
+    string value;
+    back->pop(value);
+    forward->push(value);
+
+    if(back->isEmpty()){
+        cout << "Back history is empty" << endl;
+    }else{
+        back->getTop(value);
+        cout << "The current web page " << value << endl;
+    }
+}
+
+void forward(Stack* forwardS){
+    string value;
+    forwardS->pop(value);
+
+    if(value.size() == 0){
+        cout << "Forward history is empty" << endl;
+    }else{
+        cout << "The current web page " << value << endl;
+    }
 }
