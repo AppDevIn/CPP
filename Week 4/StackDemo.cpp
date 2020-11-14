@@ -15,6 +15,7 @@ int main(int argc, char const *argv[])
     s.getTop(value);
 
     s.displayInOrderOfInsertion();
+    s.displayInOrder();
 
     s.pop();
 

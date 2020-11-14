@@ -119,7 +119,19 @@ void Stack::displayInOrderOfInsertion(){
         node = node->next;
     }
     stack.displayInOrder();
-    
-    
+
+
+    //Using recursion 
+    // reverse(node);
+    // cout << endl;
+
+}
+
+void Stack::reverse(Node* head){
+
+    if (head == NULL) return;
+    reverse(head->next);
+
+    cout << head->item ;
 
 }

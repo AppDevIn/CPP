@@ -17,6 +17,7 @@ private:
 	};
 
 	Node *topNode;
+	void reverse(Node* head);
 
 public:
 	Stack();		// constructor
@@ -28,7 +29,6 @@ public:
 	bool isEmpty();
 	void displayInOrder();
 	void displayInOrderOfInsertion();
-	void printReverse(Node *head);
 };
 
 
