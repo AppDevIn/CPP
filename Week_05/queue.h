@@ -23,7 +23,7 @@ Node *backNode;	// point to the first item
 	// constructor
 	Queue();
 
-      ~Queue();
+  ~Queue();
 
 	// enqueue (add) item at the back of queue
 	bool enqueue(ItemType item);
