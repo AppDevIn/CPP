@@ -15,6 +15,13 @@ int main(int argc, char const *argv[])
     q.getFront(c);
     cout << c << endl;
 
+    q.dequeue();
+    cout << c << " DELETED" << endl;
+
+
+    q.getFront(c);
+    cout << c << endl;
+
     return 0;
 }
 

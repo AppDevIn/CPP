@@ -38,6 +38,69 @@ bool Queue::enqueue(ItemType item){
 
 }
 
+bool Queue::dequeue(){
+    
+
+    Node* temp = NULL;
+    // If frontNode points to same location as backNode (i.e. only one node in queue)
+    if(frontNode == backNode){
+        //set frontNode to NULL
+        frontNode = NULL;
+        //set backNode to NULL
+        backNode = NULL;
+    } 
+    // Else
+    else{
+        // set temp (pointer) point to the front node
+        temp = frontNode;
+        
+        //make frontNode(pointer) point to the next node in stack
+        frontNode = frontNode->next;
+
+    }
+    // make removed node’s next (pointer) point to NULL
+    temp->next = NULL;
+    
+    // deallocate memory from removed node
+    delete temp;
+
+
+
+}
+
+
+bool Queue::dequeue(ItemType &item){
+    
+
+    Node* temp = NULL;
+    // If frontNode points to same location as backNode (i.e. only one node in queue)
+    if(frontNode == backNode){
+        //set frontNode to NULL
+        frontNode = NULL;
+        //set backNode to NULL
+        backNode = NULL;
+    } 
+    // Else
+    else{
+        // set temp (pointer) point to the front node
+        temp = frontNode;
+        
+        //make frontNode(pointer) point to the next node in stack
+        frontNode = frontNode->next;
+
+        item = temp->item;
+
+    }
+    // make removed node’s next (pointer) point to NULL
+    temp->next = NULL;
+    
+    // deallocate memory from removed node
+    delete temp;
+
+
+
+}
+
 
 void Queue::getFront(ItemType &item){
     //If queue is not empty
@@ -46,7 +109,5 @@ void Queue::getFront(ItemType &item){
         item = frontNode->item;
     
     }
-
-    
-
 }
+
