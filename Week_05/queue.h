@@ -40,7 +40,7 @@ Node *backNode;	// point to the first item
 	// check if the queue is empty
 	bool isEmpty(); 
 
-      // display items in queue from front to back
-      void displayItems();
+  // display items in queue from front to back
+  void displayItems();
 }; 
 

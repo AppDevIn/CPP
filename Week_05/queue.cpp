@@ -64,6 +64,7 @@ bool Queue::dequeue(){
     // deallocate memory from removed node
     delete temp;
 
+    return true;
 
 
 }
@@ -97,6 +98,7 @@ bool Queue::dequeue(ItemType &item){
     // deallocate memory from removed node
     delete temp;
 
+    return true;
 
 
 }
@@ -109,5 +111,18 @@ void Queue::getFront(ItemType &item){
         item = frontNode->item;
     
     }
+}
+
+void Queue::displayItems(){
+    
+    Node* node = frontNode;
+
+    while(node){
+        cout << node->item << "\t";
+        node = node->next;
+    }
+
+    cout << endl;
+
 }
 

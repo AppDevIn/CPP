@@ -7,20 +7,22 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     Queue q;
+    char c;
 
     q.enqueue('a');
     q.enqueue('b');
 
-    char c;
     q.getFront(c);
-    cout << c << endl;
+    cout << "Display the front value: " << c << endl;
+
+    cout << "Display all items: " << endl;
+    q.displayItems();
 
     q.dequeue();
-    cout << c << " DELETED" << endl;
 
+    cout << "Display all items" << endl;;
+    q.displayItems();
 
-    q.getFront(c);
-    cout << c << endl;
 
     return 0;
 }
