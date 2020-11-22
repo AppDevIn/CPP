@@ -26,9 +26,7 @@ public:
 	bool pop();
 	bool pop(ItemType &item);
 	void getTop(ItemType &item);
-	bool isEmpty();
-	void displayInOrder();
-	void displayInOrderOfInsertion();
+	bool isEmpty();	
 };
 
 
