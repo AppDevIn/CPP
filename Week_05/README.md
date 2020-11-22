@@ -6,7 +6,7 @@ The **F**irst **I**n **F**irst **O**ut (FIFO). The first item in the queue is th
 
 ### Example
 
-![Untitled](.images/Untitled.png)
+![Untitled](../.images/Untitled.png)
 
 The first one to enter the car wash is the first one out
 
@@ -65,7 +65,7 @@ struct Node{
 
 
 
-![Screenshot_2020-11-21_at_10.28.43_AM](.images/Screenshot_2020-11-21_at_10.28.43_AM.png)
+![Screenshot_2020-11-21_at_10.28.43_AM](../.images/Screenshot_2020-11-21_at_10.28.43_AM.png)
 
 
 
@@ -141,7 +141,7 @@ Node *backNode;	// point to the first item
 
 
 
-![Screenshot_2020-11-22_at_10.03.25_AM](.images/Screenshot_2020-11-22_at_10.03.25_AM.png)
+![Screenshot_2020-11-22_at_10.03.25_AM](../.images/Screenshot_2020-11-22_at_10.03.25_AM.png)
 
 
 
@@ -184,7 +184,7 @@ bool Queue::enqueue(ItemType item){
 
    
 
-![Screenshot_2020-11-22_at_10.03.15_AM](.images/Screenshot_2020-11-22_at_10.03.15_AM.png)
+![Screenshot_2020-11-22_at_10.03.15_AM](../.images/Screenshot_2020-11-22_at_10.03.15_AM.png)
 
 
 
