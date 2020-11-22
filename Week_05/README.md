@@ -1,14 +1,12 @@
-# Queue
-
 # Pointer based Implmentation
 
 ## Queue ADT
 
-The **F**irst **I**n **F**irst **O**ut (FIFO). The first item in the queue is the first item out 
+The **F**irst **I**n **F**irst **O**ut (FIFO). The first item in the queue is the first item out
 
 ### Example
 
-![Queue%20669bfd96682746deabd0dd1d97319447/Untitled.png](Queue%20669bfd96682746deabd0dd1d97319447/Untitled.png)
+![Untitled](.images/Untitled.png)
 
 The first one to enter the car wash is the first one out
 
@@ -16,8 +14,8 @@ The first one to enter the car wash is the first one out
 
 - Queue is a collection of item
 - The operation can only occur at the queue's two ends
-    - Item can only be **removed** from the front of the queue
-    - Item can only be **added** to the back of the queue
+  - Item can only be **removed** from the front of the queue
+  - Item can only be **added** to the back of the queue
 
 ## Implementing Queue
 
@@ -34,29 +32,29 @@ The first one to enter the car wash is the first one out
 
 - **Queue()**
 - **~Queue()**
-- **enqueue(ItemType& item):boolean**
-    - parameter
-        - item → The item than needs to be added at the back of the queue
-    - return
-        - A boolean if it was added to the queue
-- **dequeue():boolean**
-    - return
-        - A boolean if the item was removed
-- **dequeue(ItemType& item):boolean**
-    - parameter
-        - Item → The use this as a reference to return the item
-    - return
-        - A boolean if the item was removed
-- **getFront(ItemType& item):void**
-    - parameter
-        - Item → The use this as a reference to return the item
-- **isEmpty():boolean**
-    - return
-        - True if empty and false if is not
+- enqueue(ItemType& item):boolean
+  - parameter
+    - item → The item than needs to be added at the back of the queue
+  - return
+    - A boolean if it was added to the queue
+- dequeue():boolean
+  - return
+    - A boolean if the item was removed
+- dequeue(ItemType& item):boolean
+  - parameter
+    - Item → The use this as a reference to return the item
+  - return
+    - A boolean if the item was removed
+- getFront(ItemType& item):void
+  - parameter
+    - Item → The use this as a reference to return the item
+- isEmpty():boolean
+  - return
+    - True if empty and false if is not
 
 ### Pointor based Implementation
 
-Node struncture 
+Node struncture
 
 ```cpp
 struct Node{
@@ -65,9 +63,13 @@ struct Node{
 }
 ```
 
-![Queue%20669bfd96682746deabd0dd1d97319447/Screenshot_2020-11-21_at_10.28.43_AM.png](Queue%20669bfd96682746deabd0dd1d97319447/Screenshot_2020-11-21_at_10.28.43_AM.png)
 
-Overall Queue ADT needs: 
+
+![Screenshot_2020-11-21_at_10.28.43_AM](.images/Screenshot_2020-11-21_at_10.28.43_AM.png)
+
+
+
+Overall Queue ADT needs:
 
 - A pointer frontNode to point to the node at front position (initially point to NULL)
 - A pointer backNode to point to the node at back position (initially point to NULL)
@@ -137,7 +139,11 @@ Node *backNode;	// point to the first item
 2. Make the back node's next pointor (backNode→next) point to the new node (backNode→next = newNode)
 3. Make the back node point to the new node (backNode = newNode)
 
-![Queue%20669bfd96682746deabd0dd1d97319447/Screenshot_2020-11-22_at_10.03.25_AM.png](Queue%20669bfd96682746deabd0dd1d97319447/Screenshot_2020-11-22_at_10.03.25_AM.png)
+
+
+![Screenshot_2020-11-22_at_10.03.25_AM](.images/Screenshot_2020-11-22_at_10.03.25_AM.png)
+
+
 
 ```cpp
 bool Queue::enqueue(ItemType item){
@@ -171,10 +177,16 @@ bool Queue::enqueue(ItemType item){
 ### Dequeue
 
 1. Use a temp pointer to point to front node
+
 2. Make the frontNode point to the next node in queue
+
 3. Make removed node’s next pointer point to NULL and deallocate memory from removed node
 
-![Queue%20669bfd96682746deabd0dd1d97319447/Screenshot_2020-11-22_at_10.03.15_AM.png](Queue%20669bfd96682746deabd0dd1d97319447/Screenshot_2020-11-22_at_10.03.15_AM.png)
+   
+
+![Screenshot_2020-11-22_at_10.03.15_AM](.images/Screenshot_2020-11-22_at_10.03.15_AM.png)
+
+
 
 ```cpp
 bool Queue::dequeue(){
