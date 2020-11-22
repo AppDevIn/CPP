@@ -130,20 +130,20 @@ void Queue::getFront(ItemType &item){
     }
 }
 
-void Queue::displayItems(){
+// void Queue::displayItems(){
     
 
-    if(!isEmpty()){
-        Node* node = frontNode;
+//     if(!isEmpty()){
+//         Node* node = frontNode;
 
-        while(node){
-            cout << node->item << "\t";
-            node = node->next;
-        }
+//         while(node){
+//             cout << node->item << "\t";
+//             node = node->next;
+//         }
 
-        cout << endl;
-    }
-}
+//         cout << endl;
+//     }
+// }
 
 bool Queue::isEmpty(){
     return frontNode == NULL;

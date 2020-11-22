@@ -2,9 +2,10 @@
 #pragma once
 #include<string>
 #include<iostream>
+#include "customer.h"
 using namespace std;
 
-typedef char ItemType;
+typedef Customer ItemType;
 
 class Queue
 {
@@ -15,8 +16,8 @@ class Queue
       Node     *next;	// pointer pointing to next item
     };
 
-Node *frontNode;	// point to the first item
-Node *backNode;	// point to the first item
+  Node *frontNode;	// point to the first item
+  Node *backNode;	// point to the first item
 
 
   public:
