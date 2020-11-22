@@ -8,6 +8,21 @@ Queue::Queue(){
 
 Queue::~Queue(){
 
+    Node* node = frontNode;
+
+    while(node){
+
+        frontNode = frontNode->next;
+
+        node->next = NULL;
+
+        delete node;
+        node = frontNode;
+    }
+
+    // backNode->next = NULL;
+    // delete backNode;
+    
 }
 
 bool Queue::enqueue(ItemType item){
@@ -43,7 +58,7 @@ bool Queue::dequeue(){
 
     Node* temp = NULL;
     // If frontNode points to same location as backNode (i.e. only one node in queue)
-    if(frontNode == backNode){
+    if(isEmpty()){
         //set frontNode to NULL
         frontNode = NULL;
         //set backNode to NULL
@@ -75,7 +90,7 @@ bool Queue::dequeue(ItemType &item){
 
     Node* temp = NULL;
     // If frontNode points to same location as backNode (i.e. only one node in queue)
-    if(frontNode == backNode){
+    if(isEmpty()){
         //set frontNode to NULL
         frontNode = NULL;
         //set backNode to NULL
@@ -115,14 +130,19 @@ void Queue::getFront(ItemType &item){
 
 void Queue::displayItems(){
     
-    Node* node = frontNode;
 
-    while(node){
-        cout << node->item << "\t";
-        node = node->next;
+    if(!isEmpty()){
+        Node* node = frontNode;
+
+        while(node){
+            cout << node->item << "\t";
+            node = node->next;
+        }
+
+        cout << endl;
     }
-
-    cout << endl;
-
 }
 
+bool Queue::isEmpty(){
+    return frontNode == NULL;
+}

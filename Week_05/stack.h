@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-typedef string ItemType;
+typedef char ItemType;
 
 
 
