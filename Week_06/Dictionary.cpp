@@ -46,13 +46,13 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
     // Compute the index using hash function
     int hashValue = hash(newKey);
 
-
+    
     Node* node = items[hashValue];
 
     //Create a new node
     Node* newNode = new Node;
 
-    //Items and keys
+    //Set Items and keys into the newNode
     newNode->item = newItem;
     newNode->key = newKey;
     newNode->next = NULL;
@@ -60,37 +60,23 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
 
     // If list at index is empty
     if(!node){
-
         //Set list at index to point to new node 
         items[hashValue] = newNode;
-        
-        
 
     } else {
 
-        Node* temp = node;
-        while (temp)
-        {
-            if(temp->key == newNode->key){
-                return false;
-            }
-            temp = temp->next;
-        }
-
+        if(node->key == newNode->key){
+            return false;
+        } else 
+            while(node->next){node = node->next;}
         
-        while(node->next){
-            node = node->next;
-        }
-
         node->next = newNode;
-        
-
     }
     
     // Increase the size by 1
     size++;
+
     // Return true  
-    
     return true;
 
 }
@@ -102,21 +88,21 @@ ItemType Dictionary::get(KeyType key){
     Node* node = items[hashValue]; 
 
     if(!node){
-        return "NULL";
+        return "";
     }else{
 
         Node* current = node;
         while(current){
 
-            if(current->key == key){
+            if(current->key == key)
                 return current->item;
-            }
+
             current = current->next;
         }
 
     }
 
-    return "NULL";
+    return "";
 
 
 }
@@ -133,22 +119,29 @@ void Dictionary::remove(KeyType key){
         Node* current = node;
 
         if(current->key == key){
-            Node* temp = current->next;
+            Node* next = current->next;
             current->next = NULL;
-            current = temp;
+
+            Node* temp = current;
+
+            current = next;
+            
             items[hashValue] = current;
+
+            delete temp;
             
         }else{
             while (current->next)
             {
-                if(current->next->key ==  key){
-                    Node* temp = node->next->next;
-                    current->next->next = NULL;
+                current = current->next;
+
+                if(current->key ==  key){
+                    Node* temp = current->next;
                     current->next = NULL;
-                    current->next = temp;
+                    current = NULL;
+                    current = temp;
 
                 }
-                current = current->next;
             }
         }
         
@@ -172,10 +165,8 @@ void Dictionary::print(){
             cout << node->key << " :" << node->item << endl;    
 
             while(node->next){
-
                 cout << node->next->key << " :" << node->next->item << endl;    
                 node = node->next;
-
             }
         }
 
