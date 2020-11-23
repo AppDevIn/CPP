@@ -39,8 +39,7 @@ public:
 	bool add(KeyType newKey, ItemType newItem);
 
 	// remove an item with the specified key in the Dictionary
-	// pre : key must exist in the Dictionary
-	// post: item is removed from the Dictionary
+	// pre : key must exist in the Dictionary // post: item is removed from the Dictionary
 	//       size of Dictionary is decreased by 1
 	void remove(KeyType key);
 
