@@ -28,16 +28,16 @@ int charvalue(char c)
 }
 
 int Dictionary::hash(KeyType key){
-    
-    
-    int total = 0;
-    for (int i = 0; i < key.length(); i++) {
-        total += charvalue(key[i]);
-    }
+    int total = charvalue(key[0]);
 
-    
+	for (int i = 1; i < key.size(); i++)
+	{
+		if (charvalue(key[i]) < 0)  // not an alphabet
+			continue;
+		total = total * 52 + charvalue(key[i]);
 
-    return total%MAX_SIZE;
+		total %= MAX_SIZE;
+	}
 
 }
 
@@ -68,7 +68,14 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
         if(node->key == newNode->key){
             return false;
         } else 
-            while(node->next){node = node->next;}
+            while(node->next){
+                node = node->next;
+                if(node->key == newNode->key){
+                    return false;
+                }
+            }
+            
+
         
         node->next = newNode;
     }
@@ -133,15 +140,16 @@ void Dictionary::remove(KeyType key){
         }else{
             while (current->next)
             {
-                current = current->next;
-
-                if(current->key ==  key){
-                    Node* temp = current->next;
+                
+                if(current->next->key ==  key){
+                    Node* temp = current->next->next;
+                    current->next->next = NULL;
                     current->next = NULL;
-                    current = NULL;
-                    current = temp;
+                    current->next = temp;
 
                 }
+
+                current = current->next;
             }
         }
         

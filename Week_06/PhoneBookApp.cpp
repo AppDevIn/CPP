@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
     d.add("PohSeng", "64608687");
     d.add("Wesley", "64607237");
     d.add("WeeChong", "64606854");
-    d.add("WeCehong", "64606854");
+    // d.add("WeCehong", "64606854");
 
     cout << "Print 01" << endl;
     d.print();
