@@ -37,7 +37,7 @@ int Dictionary::hash(KeyType key){
 		total = total * 52 + charvalue(key[i]);
     }
 
-		total %= MAX_SIZE;
+	total %= MAX_SIZE;
 
 
 }
@@ -47,7 +47,7 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
     // Compute the index using hash function
     int hashValue = hash(newKey);
 
-    
+    //Get the node from the items 
     Node* node = items[hashValue];
 
     //Create a new node
@@ -59,22 +59,23 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
     newNode->next = NULL;
 
 
-    // If list at index is empty
+    // Check if thee if item in the node is empty
     if(!node){
         //Set list at index to point to new node 
         items[hashValue] = newNode;
 
     } else {
-
+        //Check if the first node key is the smae 
         if(node->key == newNode->key){
             return false;
-        } else 
+        } else { 
             while(node->next){
                 node = node->next;
                 if(node->key == newNode->key){
                     return false;
                 }
             }
+        }
             
 
         
