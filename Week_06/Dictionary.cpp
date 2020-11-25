@@ -35,9 +35,10 @@ int Dictionary::hash(KeyType key){
 		if (charvalue(key[i]) < 0)  // not an alphabet
 			continue;
 		total = total * 52 + charvalue(key[i]);
+    }
 
 		total %= MAX_SIZE;
-	}
+
 
 }
 
