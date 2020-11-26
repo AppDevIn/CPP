@@ -30,16 +30,17 @@ int charvalue(char c)
 int Dictionary::hash(KeyType key){
     int total = charvalue(key[0]);
 
-	for (int i = 1; i < key.size(); i++)
+	for (int i = 1; i < key.length(); i++)
 	{
 		if (charvalue(key[i]) < 0)  // not an alphabet
 			continue;
 		total = total * 52 + charvalue(key[i]);
+	    
+        total %= MAX_SIZE;
     }
 
-	total %= MAX_SIZE;
 
-
+    return total;
 }
 
 
@@ -69,8 +70,12 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
         if(node->key == newNode->key){
             return false;
         } else { 
+
+            //Trasverse throught the linked list
             while(node->next){
+                //Assign it to the next node to node 
                 node = node->next;
+                //Check if the node has the same key 
                 if(node->key == newNode->key){
                     return false;
                 }
@@ -78,7 +83,7 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
         }
             
 
-        
+        //Set the next to the new node 
         node->next = newNode;
     }
     
@@ -90,19 +95,22 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
 
 }
 
-ItemType Dictionary::get(KeyType key){
+ItemType Dictionary::get(KeyType key){    
 
+    ItemType item;
+
+    //Get the hash value for the key
     int hashValue = hash(key);
 
+    //Get the item based on the hashvalue 
     Node* node = items[hashValue]; 
 
-    if(!node){
-        return "";
-    }else{
-
+    //Check if the first item is not empty     
+    if(node){
         Node* current = node;
+        //Trasverse through the node the find the key
         while(current){
-
+            //If you got the key return the item
             if(current->key == key)
                 return current->item;
 
@@ -111,7 +119,7 @@ ItemType Dictionary::get(KeyType key){
 
     }
 
-    return "";
+    return item;
 
 
 }
