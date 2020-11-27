@@ -12,6 +12,19 @@ Dictionary::Dictionary(){
 
 Dictionary::~Dictionary(){
 
+
+    for (int i = 0; i <= MAX_SIZE; i++)
+    {
+
+        Node* temp = items[i];
+
+        items[i] = NULL;
+
+        delete temp;    
+    }
+    
+
+
 }
 
 int charvalue(char c)

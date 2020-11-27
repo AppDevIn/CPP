@@ -31,5 +31,8 @@ int main(int argc, char const *argv[])
     cout << "Print 03" << endl;    
     d.print();
 
+
+    d.~Dictionary();
+
     return 0;
 }
