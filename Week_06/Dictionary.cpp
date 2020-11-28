@@ -16,12 +16,31 @@ Dictionary::~Dictionary(){
     for (int i = 0; i <= MAX_SIZE; i++)
     {
 
-        Node* temp = items[i];
+        Node* node = items[i];
+
+        if(node){
+            while(node->next){
+
+                Node* temp = node->next;            
+
+                node->next = NULL;
+
+                node = node->next;
+
+                delete temp;
+
+            }
+
+        } 
+
 
         items[i] = NULL;
 
-        delete temp;    
+        delete node;
+        
+
     }
+    size = 0;
     
 
 
