@@ -13,7 +13,7 @@ Dictionary::Dictionary(){
 Dictionary::~Dictionary(){
 
 
-    for (int i = 0; i <= MAX_SIZE; i++)
+    for (int i = 0; i < MAX_SIZE; i++)
     {
 
         Node* node = items[i];
