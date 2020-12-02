@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 
 int maxArray(int array[], int start, int end){
 
-    if ((end-start) <= 0){
+    if ( end == start ){
         return array[start];
     } else {
         int mid = (start + end) / 2;
