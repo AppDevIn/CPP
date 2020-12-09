@@ -18,6 +18,8 @@ int main(int argc, char const *argv[])
     cout << gcd(24,60) << endl;
     cout << gcd(41,27) << endl;
 
+
+    //C) iterative soltion 
     int x = 8; int y = 12;
 
     while(y != 0){
