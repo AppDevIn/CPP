@@ -116,6 +116,21 @@ int List::count(ItemType item){
 
 }
 
+int List::countR(ItemType item){
+
+    return rCount(front, item);
+
+}
+
+int List::rCount(Node* curr, ItemType item){
+
+    if(!curr) return 0;
+
+    return item == curr->item ? rCount(curr->next, item) + 1 : rCount(curr->next, item);
+
+}
+
+
 void List::reverse(){
     
     Node* curr = front;

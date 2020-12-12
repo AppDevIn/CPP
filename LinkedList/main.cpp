@@ -27,6 +27,9 @@ int main(int argc, char const *argv[])
     list.reverse();
     list.display();
 
+    cout << list.countR('z') << endl;
+
+
 
     return 0;
 }
