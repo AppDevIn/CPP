@@ -116,6 +116,26 @@ int List::count(ItemType item){
 
 }
 
+void List::reverse(){
+    
+    Node* curr = front;
+    Node* next = NULL, *prev = NULL;
+
+    while(curr->next){
+        
+        next = curr->next;
+
+        curr->next = prev;
+        
+        prev = curr;
+        curr = next;
+
+    }
+
+    front = prev;
+
+} 
+
 
 
 void List::display(){
@@ -124,10 +144,11 @@ void List::display(){
     for (int i = 0; i < size; i++)
     {
 
-        cout << current->item << endl;
+        cout << current->item ;
         current = current->next;
     }
 
+    cout << endl;
 
     
 
