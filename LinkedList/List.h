@@ -29,6 +29,7 @@ class List
       Node* front;    // pointer pointing to front node 
 
       int rCount(Node* curr, ItemType item);
+      void rReverse(Node* curr);
  
 
   public: 
