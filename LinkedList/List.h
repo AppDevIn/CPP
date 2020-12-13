@@ -71,5 +71,7 @@ public:
     void display();
 
     void removeDuplicatesfromUnsorted();
+    
+    void removeDuplicatesfromSorted();
 
 };

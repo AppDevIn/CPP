@@ -189,28 +189,57 @@ void List::display()
     cout << endl;
 }
 
-void List::removeDuplicatesfromUnsorted(){
+void List::removeDuplicatesfromUnsorted()
+{
 
     //Store front in curr
-    Node* curr = front;
+    Node *curr = front;
     //Traverse through the node
-    while(curr){
-        //Check the number of occurance 
-        //if more than 1 remove 
-        if(!curr->next) break;
-        if(countR(curr->next->item) > 1){
-            Node* temp = curr->next;
+    while (curr)
+    {
+        //Check the number of occurance
+        //if more than 1 remove
+        if (!curr->next)
+            break;
+        if (countR(curr->next->item) > 1)
+        {
+            Node *temp = curr->next;
             curr->next = NULL;
             curr->next = temp->next;
             delete temp;
             size--;
+        }
+        else
+        {
+            //Point to the next pointor
+            curr = curr->next;
+        }
+    }
+}
 
-        } else{
-        //Point to the next pointor
-        curr = curr->next;
-    
+
+void List::removeDuplicatesfromSorted()
+{
+
+    //Store front in curr
+    Node *curr = front;
+    //Traverse through the node
+    while (curr)
+    {
+        ItemType item = curr->item;
+        Node* temp = curr;
+        if (!curr->next)
+            break;
+        while(temp->next->item == item) {
+            
+                Node* t = temp->next;
+                temp->next = NULL;
+                temp->next = t->next;
+                delete t;
+                size--;
+                
         }
 
-        
+        curr = curr->next;
     }
 }
