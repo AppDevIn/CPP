@@ -129,7 +129,7 @@ bool Dictionary::add(KeyType newKey, ItemType newItem){
 
 ItemType Dictionary::get(KeyType key){    
 
-    ItemType item;
+    ItemType item = 0;
 
     //Get the hash value for the key
     int hashValue = hash(key);

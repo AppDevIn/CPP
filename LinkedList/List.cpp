@@ -152,16 +152,30 @@ void List::reverse(){
 } 
 
 void List::reverseR(){
-    rReverse(front);
-    cout << endl;
+    Node* node;
+    front = rReverse(front);
+    
 }
 
-void List::rReverse(Node* curr){
+List::Node* List::rReverse(Node* curr){
     
-    if(!curr) return;
+    if(!curr->next) return curr;
 
-    rReverse(curr->next);
-    cout << curr->item ;
+    Node* temp = rReverse(curr->next);
+
+    Node* t = temp;
+
+    while(t->next) {
+        t = t->next;
+    }
+
+    curr->next = NULL;
+
+    t->next = curr;
+    
+
+    return temp;
+    
 
 
 } 
