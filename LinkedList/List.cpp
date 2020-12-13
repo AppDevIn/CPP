@@ -274,7 +274,18 @@ void List::deleteAllOccurrences(ItemType item)
     }
 }
 
-int List::getLength() { return size; }
+int List::getLength() { 
+    
+    Node* curr = front;
+    int count = 0;
+    while(curr->next){
+        curr = curr->next;
+        count++;
+    }
+
+    return count;
+
+}
 
 void List::mergeLLAt(List newList, int pos)
 {
