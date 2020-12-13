@@ -217,7 +217,6 @@ void List::removeDuplicatesfromUnsorted()
     }
 }
 
-
 void List::removeDuplicatesfromSorted()
 {
 
@@ -227,46 +226,97 @@ void List::removeDuplicatesfromSorted()
     while (curr)
     {
         ItemType item = curr->item;
-        Node* temp = curr;
+        Node *temp = curr;
         if (!curr->next)
             break;
-        while(temp->next->item == item) {
-            
-                Node* t = temp->next;
-                temp->next = NULL;
-                temp->next = t->next;
-                delete t;
-                size--;
-                
+        while (temp->next->item == item)
+        {
+
+            Node *t = temp->next;
+            temp->next = NULL;
+            temp->next = t->next;
+            delete t;
+            size--;
         }
 
         curr = curr->next;
     }
 }
 
-void List::deleteAllOccurrences(ItemType item){
-    Node* curr = front;
+void List::deleteAllOccurrences(ItemType item)
+{
+    Node *curr = front;
 
-
-
-    while(curr){
+    while (curr)
+    {
         if (!curr->next)
             break;
-        if(curr->next->item == item){
-            Node* temp = curr->next;
+        if (curr->next->item == item)
+        {
+            Node *temp = curr->next;
             curr->next = NULL;
             curr->next = temp->next;
             delete temp;
             size--;
-        } else {
+        }
+        else
+        {
             curr = curr->next;
         }
     }
 
-    if(front->item == item) {
-        Node* temp = front;
+    if (front->item == item)
+    {
+        Node *temp = front;
         front = temp->next;
         delete temp;
         size--;
     }
+}
+
+int List::getLength() { return size; }
+
+void List::mergeLLAt(List newList, int pos)
+{
+
+    if(pos <= size || pos >= 0){ 
+        return;
+    }
+    if (pos == 0)
+    {
+        Node *curr = newList.getNode();
+        Node* temp = curr;
+        while (temp->next)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = getNode();
+        front = curr;
+    }
+    else
+    {
+        Node *curr = front;
+        for (int i = 0; i < (pos - 1); i++)
+        {
+            curr = curr->next;
+        }
+
+        Node *temp = curr->next;
+
+        Node *listNode = newList.getNode();
+        Node *listNodeTemp = listNode;
+        while(listNodeTemp->next){ listNodeTemp = listNodeTemp->next;}
+        listNodeTemp->next = temp;
+
+        curr->next = listNode;
+
+    }
+    size += newList.getLength();
+}
+
+List::Node *List::getNode()
+{
+
+    return front;
 }

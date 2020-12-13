@@ -24,6 +24,7 @@ private:
 
     int rCount(Node *curr, ItemType item);
     Node *rReverse(Node *curr);
+    Node* getNode();
 
 public:
     //constructor
@@ -70,10 +71,14 @@ public:
 
     void display();
 
+    int getLength();
+
     void removeDuplicatesfromUnsorted();
     
     void removeDuplicatesfromSorted();
 
     void deleteAllOccurrences(ItemType item);
+
+    void mergeLLAt(List newList, int pos);
 
 };
