@@ -243,3 +243,30 @@ void List::removeDuplicatesfromSorted()
         curr = curr->next;
     }
 }
+
+void List::deleteAllOccurrences(ItemType item){
+    Node* curr = front;
+
+
+
+    while(curr){
+        if (!curr->next)
+            break;
+        if(curr->next->item == item){
+            Node* temp = curr->next;
+            curr->next = NULL;
+            curr->next = temp->next;
+            delete temp;
+            size--;
+        } else {
+            curr = curr->next;
+        }
+    }
+
+    if(front->item == item) {
+        Node* temp = front;
+        front = temp->next;
+        delete temp;
+        size--;
+    }
+}

@@ -74,4 +74,6 @@ public:
     
     void removeDuplicatesfromSorted();
 
+    void deleteAllOccurrences(ItemType item);
+
 };
