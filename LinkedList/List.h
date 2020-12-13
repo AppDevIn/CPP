@@ -81,4 +81,6 @@ public:
 
     void mergeLLAt(List newList, int pos);
 
+    void reverseAt(int start, int end);
+
 };

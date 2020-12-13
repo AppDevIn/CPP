@@ -140,6 +140,44 @@ using namespace std;
 /*
 for mergeLLAt(List newList, int pos)
 */
+// int main(int argc, char const *argv[])
+// {
+//     List list;
+
+//     list.add(0,'a');
+//     list.add(1,'a');
+//     list.add(2,'a');
+//     list.add(3,'b');
+//     list.add(4,'c');
+//     list.add(5,'d');
+//     list.add(6,'e');
+//     list.add(7,'f');
+//     list.add(8,'h');
+//     list.add(9,'h');
+//     list.add(10,'i');
+//     list.add(11,'i');
+
+//     List list1;
+//     list1.add(0,'c');
+//     list1.add(1,'d');
+//     list1.add(2,'e');
+//     list1.add(3,'f');
+    
+
+//     list.display();
+
+//     list.mergeLLAt(list1, 1);
+
+//     list.display();
+
+
+//     return 0;
+// }
+
+
+/*
+for reverseAt(int start, int end)
+*/
 int main(int argc, char const *argv[])
 {
     List list;
@@ -157,21 +195,17 @@ int main(int argc, char const *argv[])
     list.add(10,'i');
     list.add(11,'i');
 
-    List list1;
-    list1.add(0,'c');
-    list1.add(1,'d');
-    list1.add(2,'e');
-    list1.add(3,'f');
     
 
     list.display();
 
-    list.mergeLLAt(list1, );
+    list.reverseAt(3,8);
 
     list.display();
 
 
     return 0;
 }
+
 
 

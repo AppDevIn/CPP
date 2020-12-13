@@ -320,3 +320,99 @@ List::Node *List::getNode()
 
     return front;
 }
+
+void List::reverseAt(int start, int end){
+
+    // Node* startNode = NULL, *endNode = NULL;
+
+    // for (int i = 0; i < start; i++)
+    // {
+    //     curr = curr->next;
+        
+    // }
+
+
+    // Node* prev = NULL, *next = NULL;
+    
+    // for (int i = start; i < end; i++)
+    // {
+
+    //     next = curr->next;
+
+    //     curr->next = prev;
+    //     prev = curr;
+    //     curr = next;
+        
+    // }
+    // curr = prev;
+    
+    // Node* temp = curr;
+    // while(temp->next) temp = temp->next;
+    
+    
+    // temp->next = next;
+
+    // Node* c = front;
+
+
+    // for (int i = 0; i < start; i++)
+    // {
+    //     c = c->next;
+        
+    // }
+
+    // c->next = prev;
+
+    Node* curr = front;
+    Node* temp;
+    Node* prev = NULL, *next = NULL;
+
+    for (int i = 0; i < end; i++)
+    {
+        if(i <= start){
+            curr = curr->next;
+        }
+        else if(i >= start && i < end){
+
+            ItemType item = curr->item;
+            
+            Node* node = new Node;
+            node->item = item;
+
+            node->next = prev;
+            prev = node;
+
+            curr = curr->next;
+
+            
+            
+        }
+
+
+        
+    }
+
+    temp = prev;
+    while (temp->next)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = curr;
+
+
+    curr = front;
+    for (int i = 0; i < start; i++)
+    {
+        curr = curr->next;
+        
+    }
+
+    curr->next =prev;
+    
+
+
+
+
+    
+}
