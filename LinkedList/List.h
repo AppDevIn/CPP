@@ -1,99 +1,75 @@
-#include<iostream> 
+#include <iostream>
 
-using namespace std; 
+using namespace std;
 
- 
+typedef char ItemType;
 
-typedef char ItemType; 
+class List
 
- 
+{
 
-class List 
+private:
+    struct Node
 
-{ 
+    {
 
-  private: 
+        ItemType item; // item
 
-     struct Node 
+        Node *next; // pointer pointing to next node
+    };
 
-     { 
+    int size;
 
-      ItemType item;     // item 
+    Node *front; // pointer pointing to front node
 
-      Node*    next;     // pointer pointing to next node 
+    int rCount(Node *curr, ItemType item);
+    Node *rReverse(Node *curr);
 
-     }; 
+public:
+    //constructor
 
-     int size;
+    List();
 
-      Node* front;    // pointer pointing to front node 
+    // add a new item at a specified position in the list
 
-      int rCount(Node* curr, ItemType item);
-      Node* rReverse(Node* curr);
- 
+    // 0 <= index < size
 
-  public: 
+    bool add(int index, ItemType item);
 
-    //constructor 
+    // remove an item at a specified position in the list
 
-    List(); 
+    // 0 <= index < size
 
-   
+    void remove(int index);
 
-    // add a new item at a specified position in the list 
+    // get an item at a specified position in the list
 
-    // 0 <= index < size 
+    // 0 <= index < size
 
-    bool add(int index, ItemType item); 
+    ItemType get(int index);
 
-   
+    // returns the number of occurrences of item in the list
 
-    // remove an item at a specified position in the list 
+    int count(ItemType item);
 
-    // 0 <= index < size 
+    // recursive function that
 
-    void remove(int index); 
+    // returns the number of occurrences of item in the list
 
-   
+    int countR(ItemType item);
 
-    // get an item at a specified position in the list 
+    // reverses the list
 
-    // 0 <= index < size 
+    void reverse();
 
-ItemType get(int index); 
+    // recursive function that reverses the list
 
- 
+    void reverseR();
 
-    // returns the number of occurrences of item in the list 
+    // prints all the items in the list
 
-    int count(ItemType item); 
+    void display();
 
- 
+    void removeDuplicatesfromUnsorted();
 
-// recursive function that  
-
-// returns the number of occurrences of item in the list 
-
-    int countR(ItemType item); 
-
- 
-
-    // reverses the list 
-
-void reverse(); 
-
- 
-
-    // recursive function that reverses the list 
-
-    void reverseR(); 
-
- 
-
- 
-
-    // prints all the items in the list 
-
-    void display(); 
-
-}; 
+};
