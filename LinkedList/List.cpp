@@ -323,46 +323,6 @@ List::Node *List::getNode()
 
 void List::reverseAt(int start, int end){
 
-    // Node* startNode = NULL, *endNode = NULL;
-
-    // for (int i = 0; i < start; i++)
-    // {
-    //     curr = curr->next;
-        
-    // }
-
-
-    // Node* prev = NULL, *next = NULL;
-    
-    // for (int i = start; i < end; i++)
-    // {
-
-    //     next = curr->next;
-
-    //     curr->next = prev;
-    //     prev = curr;
-    //     curr = next;
-        
-    // }
-    // curr = prev;
-    
-    // Node* temp = curr;
-    // while(temp->next) temp = temp->next;
-    
-    
-    // temp->next = next;
-
-    // Node* c = front;
-
-
-    // for (int i = 0; i < start; i++)
-    // {
-    //     c = c->next;
-        
-    // }
-
-    // c->next = prev;
-
     Node* curr = front;
     Node* temp;
     Node* prev = NULL, *next = NULL;
@@ -415,4 +375,27 @@ void List::reverseAt(int start, int end){
 
 
     
+}
+
+
+ItemType List::getMiddle(){
+    int mid = 0;
+    if(size % 2 == 0){
+        mid = ((size + 1) / 2);
+    } else{
+        mid = (size / 2) + 1;
+    }
+
+    Node* curr = front;
+
+    for (int i = 0; i < mid-1; i++)
+    {
+        curr = curr->next;
+    }
+
+    return curr->item;
+    
+
+
+
 }

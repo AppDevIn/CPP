@@ -83,4 +83,5 @@ public:
 
     void reverseAt(int start, int end);
 
+    ItemType getMiddle();
 };
