@@ -150,7 +150,9 @@ void List::reverse()
 
 void List::reverseR()
 {
-    rReverse(front);
+    if(front == NULL){
+        rReverse(front);
+    }
 }
 
 List::Node *List::rReverse(Node *curr)
@@ -163,7 +165,7 @@ List::Node *List::rReverse(Node *curr)
         return curr;
     }
 
-    Node *temp = rReverse(curr->next);
+     Node *temp = rReverse(curr->next);
 
     temp->next = curr;
 

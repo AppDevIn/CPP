@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-typedef char ItemType;
+typedef int ItemType;
 
 class Queue
 {
