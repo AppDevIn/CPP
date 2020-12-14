@@ -150,29 +150,26 @@ void List::reverse()
 
 void List::reverseR()
 {
-    front = rReverse(front);
+    rReverse(front);
 }
 
 List::Node *List::rReverse(Node *curr)
 {
+    if (curr->next == NULL)
+    { // if there is only one node
 
-    if (!curr->next)
+        front = curr;
+
         return curr;
+    }
 
     Node *temp = rReverse(curr->next);
 
-    Node *t = temp;
-
-    while (t->next)
-    {
-        t = t->next;
-    }
+    temp->next = curr;
 
     curr->next = NULL;
 
-    t->next = curr;
-
-    return temp;
+    return curr;
 }
 
 void List::display()
@@ -274,29 +271,31 @@ void List::deleteAllOccurrences(ItemType item)
     }
 }
 
-int List::getLength() { 
-    
-    Node* curr = front;
+int List::getLength()
+{
+
+    Node *curr = front;
     int count = 0;
-    while(curr->next){
+    while (curr->next)
+    {
         curr = curr->next;
         count++;
     }
 
     return count;
-
 }
 
 void List::mergeLLAt(List newList, int pos)
 {
 
-    if(pos <= size || pos >= 0){ 
+    if (pos <= size || pos >= 0)
+    {
         return;
     }
     if (pos == 0)
     {
         Node *curr = newList.getNode();
-        Node* temp = curr;
+        Node *temp = curr;
         while (temp->next)
         {
             temp = temp->next;
@@ -317,11 +316,13 @@ void List::mergeLLAt(List newList, int pos)
 
         Node *listNode = newList.getNode();
         Node *listNodeTemp = listNode;
-        while(listNodeTemp->next){ listNodeTemp = listNodeTemp->next;}
+        while (listNodeTemp->next)
+        {
+            listNodeTemp = listNodeTemp->next;
+        }
         listNodeTemp->next = temp;
 
         curr->next = listNode;
-
     }
     size += newList.getLength();
 }
@@ -332,35 +333,32 @@ List::Node *List::getNode()
     return front;
 }
 
-void List::reverseAt(int start, int end){
+void List::reverseAt(int start, int end)
+{
 
-    Node* curr = front;
-    Node* temp;
-    Node* prev = NULL, *next = NULL;
+    Node *curr = front;
+    Node *temp;
+    Node *prev = NULL, *next = NULL;
 
     for (int i = 0; i < end; i++)
     {
-        if(i <= start){
+        if (i <= start)
+        {
             curr = curr->next;
         }
-        else if(i >= start && i < end){
+        else if (i >= start && i < end)
+        {
 
             ItemType item = curr->item;
-            
-            Node* node = new Node;
+
+            Node *node = new Node;
             node->item = item;
 
             node->next = prev;
             prev = node;
 
             curr = curr->next;
-
-            
-            
         }
-
-
-        
     }
 
     temp = prev;
@@ -371,42 +369,33 @@ void List::reverseAt(int start, int end){
 
     temp->next = curr;
 
-
     curr = front;
     for (int i = 0; i < start; i++)
     {
         curr = curr->next;
-        
     }
 
-    curr->next =prev;
-    
-
-
-
-
-    
+    curr->next = prev;
 }
 
-
-ItemType List::getMiddle(){
+ItemType List::getMiddle()
+{
     int mid = 0;
-    if(size % 2 == 0){
+    if (size % 2 == 0)
+    {
         mid = ((size + 1) / 2);
-    } else{
+    }
+    else
+    {
         mid = (size / 2) + 1;
     }
 
-    Node* curr = front;
+    Node *curr = front;
 
-    for (int i = 0; i < mid-1; i++)
+    for (int i = 0; i < mid - 1; i++)
     {
         curr = curr->next;
     }
 
     return curr->item;
-    
-
-
-
 }

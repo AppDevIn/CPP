@@ -45,4 +45,7 @@ public:
   void push_front(ItemType item);
 
   void pop_back(ItemType& item);
+
+  void dequeueByRange(int start, int end);
+
 };

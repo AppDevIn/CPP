@@ -187,3 +187,32 @@ void Queue::pop_back(ItemType& type){
       
     
 }
+
+
+void Queue::dequeueByRange(int start, int end){
+
+    
+    Node* curr = frontNode;
+    
+    for (int i = 0; i < (start-1); i++)
+    {
+        curr = curr->next;
+    }
+
+    Node* temp = frontNode;
+
+    for (int i = 0; i <= end; i++)
+    {
+        temp = temp->next;
+    }
+    
+    curr->next = temp;
+
+    if(start == 0){
+
+        frontNode = frontNode->next;
+        
+    }
+
+
+}
