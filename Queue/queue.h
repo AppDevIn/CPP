@@ -43,4 +43,6 @@ public:
   void displayItems();
 
   void push_front(ItemType item);
+
+  void pop_back(ItemType& item);
 };

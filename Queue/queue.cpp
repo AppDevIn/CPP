@@ -151,7 +151,7 @@ bool Queue::isEmpty(){
 
 void Queue::push_front(ItemType item){
 
-    if(!frontNode){
+    if(frontNode){
         //Create a node
         Node* node = new Node;
         node->item = item;
@@ -167,4 +167,23 @@ void Queue::push_front(ItemType item){
     }
     
 
+}
+
+void Queue::pop_back(ItemType& type){
+
+    if(frontNode){
+        Node* curr = frontNode;
+
+        while(curr->next != backNode){
+            curr = curr->next;
+        }
+
+        Node* temp =  curr->next;
+
+        backNode = curr;
+
+        type = temp->item;
+    } 
+      
+    
 }
