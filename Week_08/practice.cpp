@@ -85,3 +85,4 @@ int binarySearch(int dataArray[], int arraySize, int target)
 
     return -1;
 }
+
