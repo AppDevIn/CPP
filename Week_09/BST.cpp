@@ -193,13 +193,23 @@ int BST::countNodes(BinaryNode* t)
 }
 
 // compute the height of the binary search tree
-int BST::getHeight() { return getHeight(root); }
+int BST::getHeight() { return getHeight(root) + 1; }
 
 int BST::getHeight(BinaryNode* t)
 {
-	
+	if (t == NULL) {
+        return -1;
+    }
 
-	return 0;
+    int left = getHeight(t->left);
+    int right = getHeight(t->right);
+
+    if (left > right) {
+        return left + 1;
+    } else {
+        return right + 1;
+    }
+
 }
 
 // check if the binary search tree is balanced
@@ -207,5 +217,22 @@ bool BST::isBalanced() { return isBalanced(root); }
 
 bool BST::isBalanced(BinaryNode* t)
 {
+	int lh; /* for height of left subtree */
+    int rh; /* for height of right subtree */
+  
+    /* If tree is empty then return true */
+    if (t == NULL) 
+        return true; 
+  
+    /* Get the height of left and right sub trees */
+    lh = getHeight(t->left); 
+    rh = getHeight(t->right); 
+  
+    if (abs(lh - rh) <= 1 && isBalanced(t->left) && isBalanced(t->right)) 
+        return true; 
+  
+    /* If we reach here then  
+    tree is not height-balanced */
+
 	return false;
 }

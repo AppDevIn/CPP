@@ -20,8 +20,8 @@ int main()
 	}
 
 	int option = 1;
-	bst.countNodes();
-
+	
+	
 	while (option != 0)
 	{
 		displayMenu();
@@ -62,10 +62,10 @@ int main()
 			cout << bst.countNodes() << endl;
 		else
 		if (option == 6)	// display height
-			cout << "To be implemented..." << endl;
+			cout << bst.getHeight() << endl;
 		else
 		if (option == 7)	// check if tree is balanced
-			cout << "To be implemented..." << endl;
+			cout << bool(bst.isBalanced()) << endl;
 		else
 		if (option == 0)
 			cout << "Bye! \n";
